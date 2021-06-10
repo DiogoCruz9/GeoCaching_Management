@@ -1,0 +1,5 @@
+0;Diogo;Admin
+1;Pedro;Premium
+2;Xavi;Premium
+3;Bruno;Premium
+4;Cátia;Premium

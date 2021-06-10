@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane prefHeight="127.0" prefWidth="587.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="edu.ufp.inf.lp2.projeto_geocaching.Gui.UserCreateGuiController">
+   <children>
+      <BorderPane prefHeight="140.0" prefWidth="600.0" style="-fx-background-color: #95A5A6;">
+         <center>
+            <Pane prefHeight="158.0" prefWidth="628.0" BorderPane.alignment="CENTER">
+               <children>
+                  <Label layoutX="14.0" layoutY="14.0" text="Indique o utilizador que pretende adicionar:">
+                     <font>
+                        <Font name="System Bold" size="18.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="28.0" layoutY="56.0" text="Nome:" />
+                  <Label layoutX="28.0" layoutY="105.0" text="Tipo:" />
+                  <TextField fx:id="nomeField" layoutX="102.0" layoutY="52.0" />
+                  <TextField fx:id="tipoField" layoutX="102.0" layoutY="101.0" />
+                  <Button fx:id="InserirUserButton" layoutX="300.0" layoutY="77.0" mnemonicParsing="false" onAction="#saveUserEvent" style="-fx-background-color: #03fc8c;" text="GO!" />
+               </children>
+            </Pane>
+         </center>
+      </BorderPane>
+   </children>
+</AnchorPane>

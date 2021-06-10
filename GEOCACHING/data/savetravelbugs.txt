@@ -1,0 +1,2 @@
+1;Borracha;3;Lisboa
+2;Estojo;2;Castelo Branco

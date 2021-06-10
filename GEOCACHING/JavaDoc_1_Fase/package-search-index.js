@@ -1,0 +1,1 @@
+packageSearchIndex = [{"l":"All Packages","u":"allpackages-index.html"},{"l":"edu.princeton.cs.algs4"},{"l":"edu.ufp.inf.lp2.projeto_geocaching"}];updateSearchResults();

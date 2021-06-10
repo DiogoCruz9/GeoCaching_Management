@@ -1,0 +1,297 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="edu.ufp.inf.lp2.projeto_geocaching.Gui.Controller">
+   <children>
+      <BorderPane prefHeight="400.0" prefWidth="600.0">
+         <top>
+            <MenuBar BorderPane.alignment="CENTER">
+              <menus>
+                <Menu mnemonicParsing="false" text="File">
+                  <items>
+                    <MenuItem mnemonicParsing="false" onAction="#handleLoadFilesAction" text="Import Info TXT" />
+                      <MenuItem mnemonicParsing="false" onAction="#readAllFilesBIN" text="Import Info BIN" />
+                    <MenuItem mnemonicParsing="false" onAction="#saveAllFilesTXT" text="Save Info TXT" />
+                    <MenuItem mnemonicParsing="false" onAction="#saveAllFilesBIN" text="Save Info BIN" />
+                  </items>
+                </Menu>
+                <Menu mnemonicParsing="false" text="About">
+                  <items>
+                        <MenuItem mnemonicParsing="false" onAction="#handleAcercaEvent" text="Who made?" />
+                  </items>
+                </Menu>
+              </menus>
+            </MenuBar>
+         </top>
+         <left>
+            <TabPane prefHeight="374.0" prefWidth="599.0" style="-fx-background-color: #95A5A6;" tabClosingPolicy="UNAVAILABLE" BorderPane.alignment="CENTER">
+              <tabs>
+                <Tab text="Utilizadores">
+                  <content>
+                    <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                           <children>
+                              <Label layoutX="22.0" layoutY="17.0" text="Lista De utilizadores">
+                                 <font>
+                                    <Font size="14.0" />
+                                 </font>
+                              </Label>
+                               <ComboBox fx:id="userComboBox" layoutX="225.0" layoutY="40.0" prefWidth="150.0" />
+
+                               <TextArea fx:id="userArea" layoutX="22.0" layoutY="40.0" prefHeight="130.0" prefWidth="187.0" />
+                              <Label layoutX="22.0" layoutY="193.0" text="Adicionar Utilizador?" />
+                              <Button fx:id="addUser" layoutX="172.0" layoutY="189.0" mnemonicParsing="false" onAction="#handleAddUserEvent" style="-fx-background-color: #03fc8c;" text="GO!" />
+                              <Label layoutX="22.0" layoutY="234.0" text="Eliminar Utilizador" />
+                              <Button fx:id="removeUser" layoutX="172.0" layoutY="230.0" mnemonicParsing="false" onAction="#handleRemoveUserEvent" style="-fx-background-color: #FA4721;" text="GO!" />
+                              <Label layoutX="22.0" layoutY="272.0" text="Editar utilizador" />
+                              <Button fx:id="editUser" layoutX="357.0" layoutY="281.0" mnemonicParsing="false" onAction="#handleEditUserEvent" style="-fx-background-color: #fcc603;" text="GO!" />
+                               <Button layoutX="399.0" layoutY="40.0" mnemonicParsing="false" onAction="#handleSelectUserAction" text="Selecionar" />
+                              <TextField fx:id="nomeField" layoutX="191.0" layoutY="268.0" />
+                              <TextField fx:id="tipoField" layoutX="191.0" layoutY="300.0" />
+                              <Label layoutX="132.0" layoutY="272.0" text="Nome:" />
+                              <Label layoutX="132.0" layoutY="304.0" text="Tipo:" />
+                           </children>
+                    </AnchorPane>
+                  </content>
+                </Tab>
+                <Tab text="Caches">
+                  <content>
+                    <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                           <children>
+                              <Label layoutX="14.0" layoutY="14.0" text="Lista de Caches" />
+                              <TextArea fx:id="cacheArea" layoutX="14.0" layoutY="31.0" prefHeight="146.0" prefWidth="239.0" />
+                              <Label layoutX="16.0" layoutY="194.0" text="Adicionar Cache?" />
+                              <Label layoutX="16.0" layoutY="230.0" text="Eliminar Cache" />
+                              <Button fx:id="addCache" layoutX="115.0" layoutY="190.0" mnemonicParsing="false" onAction="#handleAddCacheEvent" style="-fx-background-color: #03fc8c;" text="GO!" />
+                              <Button fx:id="removeCache" layoutX="115.0" layoutY="226.0" mnemonicParsing="false" onAction="#handleRemoveCacheEvent" style="-fx-background-color: #fcc603;" text="GO!" />
+                              <Label layoutX="14.0" layoutY="263.0" text="Editar Cache:" />
+                              <Button fx:id="editCache" layoutX="30.0" layoutY="293.0" mnemonicParsing="false" onAction="#handleEditCacheEvent" style="-fx-background-color: #03fc8c;" text="GO!" />
+                              <Button layoutX="461.0" layoutY="31.0" mnemonicParsing="false" onAction="#handleSelectCacheAction" text="Selecionar" />
+                              <ComboBox fx:id="cacheComboBox" layoutX="283.0" layoutY="31.0" prefWidth="150.0" />
+                              <TextField fx:id="tipoCacheField" layoutX="185.0" layoutY="259.0" prefHeight="25.0" prefWidth="94.0" />
+                              <TextField fx:id="dificuldadeCacheField" layoutX="185.0" layoutY="293.0" prefHeight="25.0" prefWidth="94.0" />
+                              <TextField fx:id="regiaoCacheField" layoutX="352.0" layoutY="259.0" prefHeight="25.0" prefWidth="84.0" />
+                              <TextField fx:id="XCacheField" layoutX="499.0" layoutY="259.0" prefHeight="25.0" prefWidth="77.0" />
+                              <TextField fx:id="numitensCacheField" layoutX="351.0" layoutY="293.0" prefHeight="25.0" prefWidth="85.0" />
+                              <TextField fx:id="YCacheField" layoutX="497.0" layoutY="293.0" prefHeight="25.0" prefWidth="80.0" />
+                              <Label layoutX="118.0" layoutY="297.0" text="Dificuldade:" />
+                              <Label layoutX="300.0" layoutY="263.0" text="Região:" />
+                              <Label layoutX="478.0" layoutY="263.0" text="X:" />
+                              <Label layoutX="478.0" layoutY="297.0" text="Y:" />
+                              <Label layoutX="121.0" layoutY="263.0" text="Tipo:" />
+                              <Label layoutX="299.0" layoutY="297.0" text="NºItens:" />
+                           </children></AnchorPane>
+                  </content>
+                </Tab>
+                  <Tab text="Itens">
+                    <content>
+                      <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                           <children>
+                              <Label layoutX="14.0" layoutY="14.0" text="Lista de Itens" />
+                              <Label layoutX="14.0" layoutY="165.0" text="Adicionar um item?" />
+                              <Label layoutX="14.0" layoutY="203.0" text="Eliminar Itens" />
+                              <TextArea fx:id="itemArea" layoutX="14.0" layoutY="34.0" prefHeight="111.0" prefWidth="202.0" />
+                              <Button fx:id="addItem" layoutX="179.0" layoutY="161.0" mnemonicParsing="false" onAction="#handleAddItemEvent" style="-fx-background-color: #03fc8c;" text="GO!" />
+                              <Button fx:id="removeItem" layoutX="179.0" layoutY="199.0" mnemonicParsing="false" onAction="#handleRemoveItemEvent" style="-fx-background-color: #fcc603;" text="GO!" />
+                              <Label layoutX="14.0" layoutY="245.0" text="Deseja Editar um item?" />
+                              <Button fx:id="editItem" layoutX="179.0" layoutY="241.0" mnemonicParsing="false" onAction="#handleEditItemEvent" style="-fx-background-color: #03fc8c;" text="GO!" />
+                              <ComboBox fx:id="itemComboBox" layoutX="245.0" layoutY="34.0" prefWidth="150.0" />
+                              <Button layoutX="418.0" layoutY="34.0" mnemonicParsing="false" onAction="#handleSelectItemAction" text="Selecionar" />
+                              <Label layoutX="229.0" layoutY="245.0" text="Nome:" />
+                              <Label layoutX="229.0" layoutY="291.0" text="É Travel Bug?" />
+                              <TextField fx:id="nomeItemField" layoutX="313.0" layoutY="241.0" />
+                              <TextField fx:id="isTBItemField" layoutX="313.0" layoutY="287.0" />
+                           </children>
+                        </AnchorPane>
+                    </content>
+                  </Tab>
+                  <Tab text="Travel Bugs">
+                    <content>
+                      <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                           <children>
+                              <TextArea fx:id="tbArea" layoutX="14.0" layoutY="37.0" prefHeight="158.0" prefWidth="286.0" />
+                              <Label layoutX="14.0" layoutY="14.0" text="Lista de Travel Bugs" />
+                              <Label layoutX="14.0" layoutY="209.0" text="Adicionar Travel Bug:" />
+                              <Label layoutX="16.0" layoutY="251.0" text="Eliminar Travel Bug:" />
+                              <Button fx:id="addTB" layoutX="139.0" layoutY="205.0" mnemonicParsing="false" onAction="#handleAddTBEvent" style="-fx-background-color: #03fc8c;" text="GO!" />
+                              <Button fx:id="removeTB" layoutX="139.0" layoutY="247.0" mnemonicParsing="false" onAction="#handleRemoveTBEvent" style="-fx-background-color: #fcc603;" text="GO!" />
+                              <Label layoutX="14.0" layoutY="294.0" text="Editar Travel Bug:" />
+                              <Button fx:id="editTB" layoutX="482.0" layoutY="291.0" mnemonicParsing="false" onAction="#handleEditTBEvent" style="-fx-background-color: #03fc8c;" text="GO!" />
+                              <Button layoutX="482.0" layoutY="37.0" mnemonicParsing="false" onAction="#handleSelectTBAction" text="Selecionar" />
+                              <ComboBox fx:id="tbComboBox" layoutX="311.0" layoutY="37.0" prefWidth="150.0" />
+                              <TextField fx:id="tbcacheField" layoutX="354.0" layoutY="290.0" prefHeight="25.0" prefWidth="95.0" />
+                              <TextField fx:id="nomeTBField" layoutX="185.0" layoutY="291.0" prefHeight="25.0" prefWidth="103.0" />
+                              <Label layoutX="139.0" layoutY="295.0" text="Nome:" />
+                              <Label layoutX="311.0" layoutY="295.0" text="Cache:" />
+                           </children>
+                        </AnchorPane>
+                    </content>
+                  </Tab>
+                  <Tab text="Pesquisas">
+                    <content>
+                      <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                           <children>
+                              <Label layoutX="14.0" layoutY="14.0" text="Selecione Utilizador:" />
+                              <ComboBox fx:id="usercachesComboBox" layoutX="14.0" layoutY="32.0" prefWidth="150.0" />
+                              <Label layoutX="14.0" layoutY="66.0" text="Caches visitadas:" />
+                              <TextArea fx:id="usercachesArea" layoutX="19.0" layoutY="85.0" prefHeight="153.0" prefWidth="80.0" />
+                              <Button layoutX="173.0" layoutY="32.0" mnemonicParsing="false" onAction="#handleSelectSearchUserVisitedCachesAction" style="-fx-background-color: #03fc8c;" text="GO!" />
+                              <Label layoutX="122.0" layoutY="66.0" text="Caches não visitadas:" />
+                              <TextArea fx:id="userNotCachesArea" layoutX="134.0" layoutY="83.0" prefHeight="156.0" prefWidth="78.0" />
+                              <Button fx:id="usersthatvisitedthiscacheButton" onAction="#handleSelectUsersThatVisitedThisCache" layoutX="510.0" layoutY="32.0" mnemonicParsing="false" text="GO!" />
+                              <Label layoutX="343.0" layoutY="14.0" text="Selecione Cache:" />
+                              <TextArea fx:id="usersthatvisitedthiscacheArea" layoutX="340.0" layoutY="89.0" prefHeight="151.0" prefWidth="156.0" />
+                              <ComboBox fx:id="usersthatvisitedthiscache" layoutX="343.0" layoutY="32.0" prefWidth="150.0" />
+                              <Label layoutX="343.0" layoutY="66.0" text="Users que visitaram:" />
+                           </children>
+                        </AnchorPane>
+                    </content>
+                  </Tab>
+                  <Tab text="Pesquisas 2">
+                      <content>
+                          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                              <children>
+                                  <Label layoutX="14.0" layoutY="14.0" text="Travel Bugs com mais localizações " />
+                              <Button layoutX="88.0" layoutY="38.0" mnemonicParsing="false" onAction="#handleSelectTBwithMoreLocationsAction" text="GO!" />
+                              <TextArea fx:id="TBWithMoreLocationsArea" layoutX="14.0" layoutY="73.0" prefHeight="97.0" prefWidth="185.0" />
+                              <TextArea fx:id="TOP5UsersWithMoreVisitedCachesArea" layoutX="286.0" layoutY="75.0" prefHeight="93.0" prefWidth="187.0" />
+                              <TextField fx:id="dataminField" layoutX="286.0" layoutY="38.0" prefHeight="25.0" prefWidth="131.0" />
+                              <TextField fx:id="datamaxField" layoutX="453.0" layoutY="38.0" prefHeight="25.0" prefWidth="132.0" />
+                              <Button layoutX="513.0" layoutY="109.0" mnemonicParsing="false" onAction="#handleTOP5UsersVisitedCaches" text="GO!" />
+                              <Label layoutX="280.0" layoutY="14.0" text="TOP5 Users que visitarem o maior número de caches entre" />
+                              <Label layoutX="432.0" layoutY="42.0" text="e" />
+                              <Label layoutX="14.0" layoutY="204.0" text="Caches PREMIUM com pelo menos 1 objeto" />
+                              <Button layoutX="27.0" layoutY="268.0" mnemonicParsing="false" onAction="#handleSelectPremiumCachesWithMin1ObjAction" text="GO!" />
+                              <TextArea fx:id="PremiumCacheMinObgArea" layoutX="72.0" layoutY="223.0" prefHeight="115.0" prefWidth="176.0" />
+                              </children>
+                          </AnchorPane>
+                      </content>
+                  </Tab>
+                  <Tab text="Grafo Total">
+                    <content>
+                        <AnchorPane prefHeight="200.0" prefWidth="200.0">
+                            <children>
+                                <VBox layoutX="-1.0" prefHeight="357.0" prefWidth="600.0" AnchorPane.bottomAnchor="-11.0" AnchorPane.leftAnchor="-1.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                    <children>
+                                        <AnchorPane prefHeight="162.0" prefWidth="750.0">
+                                            <children>
+                                                <Button layoutX="14.0" layoutY="14.0" mnemonicParsing="false" onAction="#handleMapGraphAction" text="Mostrar Grafo" />
+                                          <ComboBox fx:id="cachegraphComboBox" layoutX="391.0" layoutY="14.0" prefWidth="150.0" promptText="Caches" />
+                                          <Button layoutX="549.0" layoutY="14.0" mnemonicParsing="false" onAction="#handleSelectCacheGraphAction" text="GO!" />
+                                          <Button fx:id="PremiumGraphButton" layoutX="121.0" layoutY="14.0" mnemonicParsing="false" onAction="#handleMapGraphPremiumAction" text="Mostrar Premiuns" />
+                                            </children>
+                                        </AnchorPane>
+                                        <AnchorPane prefHeight="401.0" prefWidth="750.0" VBox.vgrow="ALWAYS">
+                                            <children>
+                                                <Group fx:id="mapGraphGroup" layoutY="89.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+                                          <TextArea fx:id="cachegraphArea" layoutX="386.0" layoutY="-13.0" prefHeight="102.0" prefWidth="200.0" promptText="Info Caches" />
+                                            </children>
+                                        </AnchorPane>
+                                    </children>
+                                </VBox>
+                            </children>
+                        </AnchorPane>
+                    </content>
+                  </Tab>
+                  <Tab text="Pesquisas Grafo">
+                      <content>
+                          <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="348.0" prefWidth="600.0" style="-fx-background-color: #95A5A6;" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1">
+                              <children>
+                                  <Label layoutX="14.0" layoutY="24.0" text="Percurso Completo">
+                                      <font>
+                                          <Font name="System Bold" size="13.0" />
+                                      </font>
+                                  </Label>
+                                  <TextArea fx:id="allRoutesArea" layoutX="14.0" layoutY="56.0" prefHeight="276.0" prefWidth="179.0" AnchorPane.topAnchor="56.0" />
+                                  <Label layoutX="246.0" layoutY="24.0" text="Caminho mais curto entre :">
+                                      <font>
+                                          <Font size="14.0" />
+                                      </font>
+                                  </Label>
+                                  <Button fx:id="ShowAllRoutesButton" layoutX="156.0" layoutY="21.0" mnemonicParsing="false" onAction="#handleShowAllRoutes" style="-fx-background-color: #A9FF33;" text="GO!" />
+                                  <TextField fx:id="fromField" layoutX="247.0" layoutY="53.0" />
+                                  <TextField fx:id="toField" layoutX="427.0" layoutY="53.0" />
+                                  <Label layoutX="409.0" layoutY="56.0" text="e">
+                                      <font>
+                                          <Font size="14.0" />
+                                      </font>
+                                  </Label>
+                                  <Button fx:id="seeQuickestRouteButton" layoutX="395.0" layoutY="86.0" mnemonicParsing="false" onAction="#showQuickestRouteBetween2Caches" style="-fx-background-color: #A9FF33;" text="GO!" />
+                                  <TextArea fx:id="quickestRouteArea" layoutX="247.0" layoutY="121.0" prefHeight="79.0" prefWidth="332.0" />
+                                  <Label layoutX="245.0" layoutY="224.0" text="Sem passar pelas caches:">
+                                      <font>
+                                          <Font size="14.0" />
+                                      </font>
+                                  </Label>
+                                  <TextField fx:id="doesntWantCacheField" layoutX="399.0" layoutY="221.0" prefHeight="26.0" prefWidth="62.0" />
+                                  <TextArea fx:id="quickestRouteAreaWithoutPassingCacheArea" layoutX="243.0" layoutY="256.0" prefHeight="84.0" prefWidth="332.0" />
+                              <Button fx:id="seeQuickestRouteButtonWithoutPassingCaches" layoutX="476.0" layoutY="222.0" mnemonicParsing="false" onAction="#showQuickestRouteBetween2CachesWithoutCacheX" text="GO!" />
+                              </children>
+                          </AnchorPane>
+                      </content>
+                  </Tab>
+                  <Tab text="Pesquisas Grafo 2">
+                      <content>
+                          <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="348.0" prefWidth="600.0" style="-fx-background-color: #95A5A6;" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1">
+                              <children>
+                                  <Label layoutX="14.0" layoutY="24.0" text="Percurso Premium Completo">
+                                      <font>
+                                          <Font name="System Bold" size="13.0" />
+                                      </font>
+                                  </Label>
+                                  <TextArea fx:id="allPremiumRoutesArea" layoutX="14.0" layoutY="56.0" prefHeight="276.0" prefWidth="179.0" AnchorPane.topAnchor="56.0" />
+                                  <Label layoutX="246.0" layoutY="24.0" text="Caminho mais curto entre :">
+                                      <font>
+                                          <Font size="14.0" />
+                                      </font>
+                                  </Label>
+                                  <Button fx:id="showAllPremiumRoutesButton" layoutX="156.0" layoutY="21.0" mnemonicParsing="false" onAction="#handleShowAllPremiumRoutes" style="-fx-background-color: #A9FF33;" text="GO!" />
+                                  <TextField fx:id="premiumfromField" layoutX="247.0" layoutY="53.0" />
+                                  <TextField fx:id="premiumtoField" layoutX="427.0" layoutY="53.0" />
+                                  <Label layoutX="409.0" layoutY="56.0" text="e">
+                                      <font>
+                                          <Font size="14.0" />
+                                      </font>
+                                  </Label>
+                                  <Button fx:id="seeQuickestPremiumRouteButton" layoutX="395.0" layoutY="86.0" mnemonicParsing="false" onAction="#showQuickestRouteBetween2PremiumCaches" style="-fx-background-color: #A9FF33;" text="GO!" />
+                                  <TextArea fx:id="quickestPremiumRouteArea" layoutX="247.0" layoutY="121.0" prefHeight="79.0" prefWidth="332.0" />
+                                  <Label layoutX="245.0" layoutY="224.0" text="Sem passar pelas caches:">
+                                      <font>
+                                          <Font size="14.0" />
+                                      </font>
+                                  </Label>
+                                  <TextField fx:id="doesntWantPremiumCacheField" layoutX="399.0" layoutY="221.0" prefHeight="26.0" prefWidth="62.0" />
+                                  <TextArea fx:id="quickestRouteAreaWithoutPassingPremiumCacheArea" layoutX="243.0" layoutY="256.0" prefHeight="84.0" prefWidth="332.0" />
+                                  <Button fx:id="seeQuickestRouteButtonWithoutPassingPremiumCaches" layoutX="476.0" layoutY="222.0" mnemonicParsing="false" onAction="#showQuickestRouteBetween2PremiumCachesWithoutCacheX" text="GO!" />
+                              </children>
+                          </AnchorPane>
+                      </content>
+                  </Tab>
+                  <Tab text="Pesquisas Grafo 3">
+                      <content>
+                          <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #95A5A6;" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1">
+                              <children>
+                                  <Label layoutX="22.0" layoutY="14.0" text="Caixeiro Viajante">
+                                      <font>
+                                          <Font name="System Bold" size="16.0" />
+                                      </font>
+                                  </Label>
+                                  <Label layoutX="14.0" layoutY="51.0" text="Escolha a cache ao qual deseja partir:" />
+                                  <TextField fx:id="cachecaixeiroviajanteField" layoutX="225.0" layoutY="47.0" prefHeight="26.0" prefWidth="58.0" />
+                                  <TextField fx:id="maxtempocaixeiroviajanteField"  layoutX="224.0" layoutY="78.0" prefHeight="26.0" prefWidth="59.0" />
+                                  <Label layoutX="14.0" layoutY="82.0" text="Limite Máximo de tempo:" />
+                                  <Button onAction="#caixeiroViajante" layoutX="225.0" layoutY="110.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="58.0" style="-fx-background-color: #A9FF33;" text="GO!" />
+                                  <TextArea fx:id="cachesreachedcaixeiroviajanteArea" layoutX="300.0" layoutY="39.0" prefHeight="100.0" prefWidth="288.0" />
+                              </children>
+                          </AnchorPane>
+                      </content>
+                  </Tab>
+              </tabs>
+            </TabPane>
+         </left>
+      </BorderPane>
+   </children>
+</AnchorPane>
